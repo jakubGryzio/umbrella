@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  View,
-  PermissionsAndroid,
-  Button,
-  TouchableOpacity,
-  Text,
-} from "react-native";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import React from "react";
+import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import MapViewDirections from "react-native-maps-directions";
+
+import customMapStyle from "./customMapStyle";
+
+const GOOGLE_MAPS_APIKEY = "AIzaSyDpgQBK2ZMFPjuPCiyMXgK1VCXlWfoc-XE";
 
 const MapState = (props) => {
+  const origin = {
+    latitude: props.location.latitude,
+    longitude: props.location.longitude,
+  };
+
+  const destination = {
+    latitude: 52.220415273884505,
+    longitude: 21.01207102961384,
+  };
+
   return (
     <View style={styles.page}>
       <View style={styles.container}>
@@ -22,12 +30,38 @@ const MapState = (props) => {
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
-        ></MapView>
+          showsUserLocation={true}
+          customMapStyle={customMapStyle}
+        >
+          <Marker
+            coordinate={{
+              latitude: 52.220415273884505,
+              longitude: 21.01207102961384,
+            }}
+            title={"KEBAB DUBAI"}
+            description={"Najlepszy kebab na świecie"}
+          >
+            <Image
+              source={require("../assets/images/marker.png")}
+              style={{ height: 45, width: 45 }}
+            />
+          </Marker>
+
+          <MapViewDirections
+            origin={origin}
+            destination={destination}
+            apikey={GOOGLE_MAPS_APIKEY}
+            strokeWidth={3}
+          />
+        </MapView>
         <TouchableOpacity
           style={styles.button}
           onPress={props.onWeatherCondition}
         >
-          <Text>GO</Text>
+          <Image
+            style={styles.imageButton}
+            source={require("../assets/images/prev_button.png")}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -44,14 +78,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "3%",
     left: "7%",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10,
     height: 50,
     width: 50,
-    borderRadius: 50,
     alignSelf: "flex-start",
-    backgroundColor: "#babfbf",
   },
   container: {
     flex: 1,
@@ -60,6 +89,10 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
+  },
+  imageButton: {
+    height: 50,
+    width: 50,
   },
 });
 
