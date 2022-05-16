@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import MapState from "./components/MapState";
 import WeatherCondition from "./components/UI/MainScreen/WeatherCondition";
-import useLocation from "./components/hooks/useLocation.js";
-import LoginForm from "./components/UI/StartScreen/LoginForm";
+import useLocation from "./components/hooks/useLocation";
+import LoginForm from "./components/UI/StartScreen/LoginScreen/LoginForm";
 import WeatherProvider from "./components/store/WeatherProvider";
-import WeatherContext from "./components/store/weather-context";
 
 export default function App() {
   const [travelRoute, isTravelRoute] = useState(false);

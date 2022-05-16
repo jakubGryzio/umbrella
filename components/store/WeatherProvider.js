@@ -30,7 +30,7 @@ const WeatherProvider = (props) => {
   };
 
   const weatherContext = {
-    temperature: weatherState.temperature.toFixed(),
+    temperature: weatherState.temperature?.toFixed(),
     changeWeather: changeWeatherInfo,
   };
 
