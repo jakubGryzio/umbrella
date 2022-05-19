@@ -1,19 +1,19 @@
-import React from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet, Text, Image } from "react-native";
 
 import { useFonts, KumbhSans_700Bold } from "@expo-google-fonts/kumbh-sans";
 import Input from "../../Common/Input";
-import EntryContainer from "../../Common/EntryContainer";
+import SignContainer from "../../Common/SignContainer";
 import { boldText } from "../../constant";
+import BottomButtons from "./BottomButtons";
+import useInput from "../../../hooks/useInput";
 
 const LoginForm = (props) => {
+  const { value: inputEmail, valueChange: emailChangeHandler } = useInput();
+
+  const { value: inputPassword, valueChange: passwordChangeHandler } =
+    useInput();
+
   let [fontsLoaded] = useFonts({
     KumbhSans_700Bold,
   });
@@ -30,10 +30,19 @@ const LoginForm = (props) => {
         />
       </View>
       <View style={styles.inputView}>
-        <Input placeholder="Your Email" />
-        <Input placeholder="Password" />
+        <Input
+          placeholder="Your Email"
+          value={inputEmail}
+          onInputChange={emailChangeHandler}
+        />
+        <Input
+          placeholder="Password"
+          password={true}
+          onInputChange={passwordChangeHandler}
+          value={inputPassword}
+        />
       </View>
-      <EntryContainer
+      <SignContainer
         label={"Sign in"}
         textStyle={styles.signInText}
         onLogged={props.onLogged}
@@ -42,8 +51,8 @@ const LoginForm = (props) => {
           style={styles.imageButton}
           source={require("../../../../assets/images/login_button.png")}
         />
-      </EntryContainer>
-      <EntryContainer
+      </SignContainer>
+      <SignContainer
         label={"Guest access"}
         textStyle={styles.guestText}
         onLogged={props.onLogged}
@@ -52,11 +61,8 @@ const LoginForm = (props) => {
           style={styles.imageButton}
           source={require("../../../../assets/images/login_button.png")}
         />
-      </EntryContainer>
-      <View style={styles.downButtonContainer}>
-        <Text style={styles.downText}>Sign Up</Text>
-        <Text style={styles.downText}>Forgot Passwords</Text>
-      </View>
+      </SignContainer>
+      <BottomButtons />
     </View>
   );
 };
@@ -84,10 +90,6 @@ const styles = StyleSheet.create({
     fontFamily: boldText,
     fontSize: 27,
   },
-  downText: {
-    fontFamily: boldText,
-    fontSize: 17,
-  },
   image: {
     height: "90%",
     width: "90%",
@@ -95,11 +97,6 @@ const styles = StyleSheet.create({
   imageButton: {
     width: 52,
     height: 52,
-  },
-  downButtonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginVertical: 55,
   },
 });
 

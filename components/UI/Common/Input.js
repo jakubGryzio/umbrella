@@ -8,6 +8,8 @@ const Input = (props) => {
         style={styles.placeholderStyle}
         placeholder={props.placeholder}
         placeholderTextColor="black"
+        secureTextEntry={props.password}
+        onChangeText={props.onInputChange}
       />
     </View>
   );

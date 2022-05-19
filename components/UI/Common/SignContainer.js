@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const EntryContainer = (props) => {
+const SignContainer = (props) => {
   return (
     <View style={styles.signInContainer}>
       <Text style={props.textStyle}>{props.label}</Text>
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EntryContainer;
+export default SignContainer;

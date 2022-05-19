@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Text, StyleSheet } from "react-native";
 import WeatherContext from "../../store/weather-context";
+import { boldText } from "../constant";
 
 const WeatherInfo = (props) => {
   const weatherCtx = useContext(WeatherContext);
@@ -29,7 +30,7 @@ const WeatherInfo = (props) => {
 
 const styles = StyleSheet.create({
   weatherInfoText: {
-    fontFamily: "KumbhSans_700Bold",
+    fontFamily: boldText,
     fontSize: 20,
     marginVertical: 1,
   },

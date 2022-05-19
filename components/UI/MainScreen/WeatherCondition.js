@@ -1,17 +1,13 @@
 import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
-import {
-  useFonts,
-  KumbhSans_700Bold,
-  KumbhSans_400Regular,
-} from "@expo-google-fonts/kumbh-sans";
+import { useFonts, KumbhSans_700Bold } from "@expo-google-fonts/kumbh-sans";
 import { StatusBar } from "react-native";
-import WeatherInfo from "./WeatherInfo";
+import WeatherInfoContainer from "./WeatherInfoContainer";
+import { boldText } from "../constant";
 
 const WeatherCondition = (props) => {
   let [fontsLoaded] = useFonts({
     KumbhSans_700Bold,
-    KumbhSans_400Regular,
   });
 
   if (!fontsLoaded) {
@@ -21,15 +17,7 @@ const WeatherCondition = (props) => {
   return (
     <View style={styles.page}>
       <StatusBar backgroundColor="#E5EAEA" barStyle="light-content" />
-      <View style={styles.weatherInfoContainer}>
-        <Text style={styles.weatherInfoText}>Todays weather</Text>
-      </View>
-      <View style={styles.weatherInfoContainer}>
-        <WeatherInfo location={props.location} />
-        <Text style={styles.weatherInfoText_}> o</Text>
-        <Text style={styles.weatherInfoText}>C</Text>
-      </View>
-
+      <WeatherInfoContainer location={props.location} />
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
@@ -55,23 +43,6 @@ const styles = StyleSheet.create({
     paddingLeft: 36,
     paddingRight: 36,
   },
-  weatherInfoContainer: {
-    marginVertical: "auto",
-    flexDirection: "row",
-    alignItems: "flex-start",
-  },
-  weatherInfoText: {
-    fontFamily: "KumbhSans_700Bold",
-    fontSize: 20,
-    marginVertical: 1,
-  },
-  weatherInfoText_: {
-    fontFamily: "KumbhSans_700Bold",
-    fontSize: 11,
-    flexDirection: "row",
-    alignItems: "flex-start",
-    lineHeight: 18,
-  },
   imageContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -87,7 +58,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   button: {
-    fontFamily: "KumbhSans_700Bold",
+    fontFamily: boldText,
     fontSize: 18,
   },
 });

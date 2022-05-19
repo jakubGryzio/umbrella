@@ -18,7 +18,6 @@ export default useLocation = () => {
         latitude,
         longitude,
       });
-      console.log(location);
     } catch (error) {
       console.log(error);
     }

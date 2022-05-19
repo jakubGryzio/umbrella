@@ -42,7 +42,7 @@ const MapState = (props) => {
             description={"Najlepszy kebab na świecie"}
           >
             <Image
-              source={require("../assets/images/marker.png")}
+              source={require("../../assets/images/marker.png")}
               style={{ height: 45, width: 45 }}
             />
           </Marker>
@@ -60,7 +60,7 @@ const MapState = (props) => {
         >
           <Image
             style={styles.imageButton}
-            source={require("../assets/images/prev_button.png")}
+            source={require("../../assets/images/prev_button.png")}
           />
         </TouchableOpacity>
       </View>

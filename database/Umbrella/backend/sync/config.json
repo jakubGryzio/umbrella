@@ -1,0 +1,16 @@
+{
+    "type": "partition",
+    "state": "enabled",
+    "development_mode_enabled": true,
+    "service_name": "mongodb-atlas",
+    "database_name": "users",
+    "partition": {
+        "key": "_partition",
+        "type": "string",
+        "required": true,
+        "permissions": {
+            "read": {},
+            "write": {}
+        }
+    }
+}
