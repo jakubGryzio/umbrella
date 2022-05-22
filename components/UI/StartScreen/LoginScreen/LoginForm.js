@@ -7,8 +7,18 @@ import SignContainer from "../../Common/SignContainer";
 import { boldText } from "../../constant";
 import BottomButtons from "./BottomButtons";
 import useInput from "../../../hooks/useInput";
+import { useDispatch } from "react-redux";
+import authSlice from "../../../../store/auth-slice";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const LoginForm = (props) => {
+  const auth = getAuth();
+  const dispatch = useDispatch();
+
   const { value: inputEmail, valueChange: emailChangeHandler } = useInput();
 
   const { value: inputPassword, valueChange: passwordChangeHandler } =
@@ -21,6 +31,19 @@ const LoginForm = (props) => {
   if (!fontsLoaded) {
     return <Text></Text>;
   }
+
+  const signInHandler = () => {
+    signInWithEmailAndPassword(auth, inputEmail, inputPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+    dispatch(authSlice.actions.signIn());
+  };
+
   return (
     <View style={styles.page}>
       <View style={styles.imageContainer}>
@@ -45,7 +68,7 @@ const LoginForm = (props) => {
       <SignContainer
         label={"Sign in"}
         textStyle={styles.signInText}
-        onLogged={props.onLogged}
+        onLogged={signInHandler}
       >
         <Image
           style={styles.imageButton}
@@ -55,7 +78,7 @@ const LoginForm = (props) => {
       <SignContainer
         label={"Guest access"}
         textStyle={styles.guestText}
-        onLogged={props.onLogged}
+        onLogged={signInHandler}
       >
         <Image
           style={styles.imageButton}

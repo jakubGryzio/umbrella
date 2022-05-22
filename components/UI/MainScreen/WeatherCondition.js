@@ -4,15 +4,27 @@ import { useFonts, KumbhSans_700Bold } from "@expo-google-fonts/kumbh-sans";
 import { StatusBar } from "react-native";
 import WeatherInfoContainer from "./WeatherInfoContainer";
 import { boldText } from "../constant";
+import { useDispatch } from "react-redux";
+import uiSlice from "../../../store/ui-slice";
+import authSlice from "../../../store/auth-slice";
 
 const WeatherCondition = (props) => {
   let [fontsLoaded] = useFonts({
     KumbhSans_700Bold,
   });
+  const dispatch = useDispatch();
 
   if (!fontsLoaded) {
     return <Text></Text>;
   }
+
+  const travelRouteHandler = () => {
+    dispatch(uiSlice.actions.goToTravelRoute());
+  };
+
+  const settingsHandler = () => {
+    dispatch(authSlice.actions.logOut());
+  };
 
   return (
     <View style={styles.page}>
@@ -25,10 +37,10 @@ const WeatherCondition = (props) => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={props.onTravelRoute}>
+        <TouchableOpacity onPress={travelRouteHandler}>
           <Text style={styles.button}>Travel Route</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={props.onSettings}>
+        <TouchableOpacity onPress={settingsHandler}>
           <Text style={styles.button}>Settings</Text>
         </TouchableOpacity>
       </View>

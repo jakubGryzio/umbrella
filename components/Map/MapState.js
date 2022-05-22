@@ -2,12 +2,16 @@ import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
+import { useDispatch } from "react-redux";
+import uiSlice from "../../store/ui-slice";
 
 import customMapStyle from "./customMapStyle";
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyDpgQBK2ZMFPjuPCiyMXgK1VCXlWfoc-XE";
 
 const MapState = (props) => {
+  const dispatch = useDispatch();
+
   const origin = {
     latitude: props.location.latitude,
     longitude: props.location.longitude,
@@ -16,6 +20,10 @@ const MapState = (props) => {
   const destination = {
     latitude: 52.220415273884505,
     longitude: 21.01207102961384,
+  };
+
+  const weatherConditionHandler = () => {
+    dispatch(uiSlice.actions.goToWeatherCondition());
   };
 
   return (
@@ -56,7 +64,7 @@ const MapState = (props) => {
         </MapView>
         <TouchableOpacity
           style={styles.button}
-          onPress={props.onWeatherCondition}
+          onPress={weatherConditionHandler}
         >
           <Image
             style={styles.imageButton}
