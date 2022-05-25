@@ -15,9 +15,12 @@ const WeatherInfo = (props) => {
         `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${api_key}`
       );
       const data = await response.json();
+
+      const icon = data.weather[0].icon;
       const temp = data.main?.temp.toFixed();
 
       dispatch(weatherSlice.actions.isWeatherChanged(temp));
+      dispatch(weatherSlice.actions.setIconId(icon));
     } catch (err) {
       console.error(err);
     }

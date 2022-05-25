@@ -15,7 +15,6 @@ const useInput = () => {
   const [inputState, dispatch] = useReducer(inputReducer, initialInputState);
 
   const valueChangeHandler = (text) => {
-    console.log(text);
     dispatch({ type: "INPUT", value: text });
   };
 

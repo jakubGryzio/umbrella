@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   bottomButtonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 55,
+    marginVertical: 40,
   },
 });
 

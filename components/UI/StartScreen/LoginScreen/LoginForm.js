@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
-
+import { View, StyleSheet, Text, Image, ToastAndroid } from "react-native";
 import { useFonts, KumbhSans_700Bold } from "@expo-google-fonts/kumbh-sans";
 import Input from "../../Common/Input";
 import SignContainer from "../../Common/SignContainer";
-import { boldText } from "../../constant";
+import { boldText, appName } from "../../constant";
 import BottomButtons from "./BottomButtons";
 import useInput from "../../../hooks/useInput";
 import { useDispatch } from "react-redux";
@@ -34,18 +33,31 @@ const LoginForm = (props) => {
 
   const signInHandler = () => {
     signInWithEmailAndPassword(auth, inputEmail, inputPassword)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+      .then(() => {
+        dispatch(authSlice.actions.signIn());
       })
       .catch((error) => {
-        console.error(error.message);
+        const showToastWithGravity = () => {
+          ToastAndroid.showWithGravity(
+            "Invalid email or password. Try sign in again!",
+            ToastAndroid.SHORT,
+            ToastAndroid.TOP
+          );
+        };
+        showToastWithGravity();
+        // dispatch(authSlice.actions.signIn());
       });
+  };
+
+  const guessHandler = () => {
     dispatch(authSlice.actions.signIn());
   };
 
   return (
     <View style={styles.page}>
+      <View style={styles.nameContainer}>
+        <Text style={styles.name}>{appName}</Text>
+      </View>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
@@ -78,7 +90,7 @@ const LoginForm = (props) => {
       <SignContainer
         label={"Guest access"}
         textStyle={styles.guestText}
-        onLogged={signInHandler}
+        onLogged={guessHandler}
       >
         <Image
           style={styles.imageButton}
@@ -97,13 +109,22 @@ const styles = StyleSheet.create({
     paddingLeft: 36,
     paddingRight: 36,
   },
+  nameContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
+  },
+  name: {
+    fontFamily: boldText,
+    fontSize: 35,
+  },
   imageContainer: {
     alignItems: "center",
     justifyContent: "center",
-    height: "43%",
+    height: "38%",
   },
   inputView: {
-    marginBottom: 12,
+    marginBottom: 17,
   },
   signInText: {
     fontFamily: boldText,
