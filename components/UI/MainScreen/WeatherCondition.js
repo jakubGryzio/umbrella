@@ -12,6 +12,7 @@ const WeatherCondition = (props) => {
   let [fontsLoaded] = useFonts({
     KumbhSans_700Bold,
   });
+
   const dispatch = useDispatch();
 
   if (!fontsLoaded) {
@@ -23,7 +24,11 @@ const WeatherCondition = (props) => {
   };
 
   const settingsHandler = () => {
-    dispatch(authSlice.actions.logOut());
+    dispatch(uiSlice.actions.gotToSettings());
+  };
+
+  const clothesPropositionHandler = () => {
+    dispatch(uiSlice.actions.goToClothesProposition());
   };
 
   return (
@@ -31,10 +36,15 @@ const WeatherCondition = (props) => {
       <StatusBar backgroundColor="#E5EAEA" barStyle="light-content" />
       <WeatherInfoContainer location={props.location} />
       <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={require("../../../assets/images/main_image-removebg-preview.png")}
-        />
+        <TouchableOpacity
+          style={styles.imageTouch}
+          onPress={clothesPropositionHandler}
+        >
+          <Image
+            style={styles.image}
+            source={require("../../../assets/images/main_image-removebg-preview.png")}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={travelRouteHandler}>
@@ -59,6 +69,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: "78%",
+  },
+  imageTouch: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   image: {
     width: "80%",

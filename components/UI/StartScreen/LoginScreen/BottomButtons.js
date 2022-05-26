@@ -1,12 +1,16 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { boldText } from "../../constant";
 
 const BottomButtons = (props) => {
   return (
     <View style={styles.bottomButtonContainer}>
-      <Text style={styles.downText}>Sign Up</Text>
-      <Text style={styles.downText}>Forgot Passwords</Text>
+      <TouchableOpacity onPress={props.signUp}>
+        <Text style={styles.downText}>Sign Up</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.downText}>Forgot Passwords</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -19,7 +23,7 @@ const styles = StyleSheet.create({
   bottomButtonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 40,
+    marginVertical: 33,
   },
 });
 

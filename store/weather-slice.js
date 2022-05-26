@@ -4,7 +4,7 @@ const weatherSlice = createSlice({
   name: "weather",
   initialState: {
     temperature: undefined,
-    icon: "",
+    description: "",
   },
   reducers: {
     isWeatherChanged(state, action) {
@@ -12,8 +12,8 @@ const weatherSlice = createSlice({
         state.temperature = action.payload;
       }
     },
-    setIconId(state, action) {
-      state.icon = action.payload;
+    setDescription(state, action) {
+      state.description = action.payload;
     },
   },
 });

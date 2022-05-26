@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { useDispatch } from "react-redux";
 import uiSlice from "../../store/ui-slice";
 
@@ -68,9 +69,81 @@ const MapState = (props) => {
         >
           <Image
             style={styles.imageButton}
-            source={require("../../assets/images/prev_button.png")}
+            source={require("../../assets/images/arrow.png")}
           />
         </TouchableOpacity>
+        {/* <GooglePlacesAutocomplete
+          placeholder="Starting point"
+          minLength={2}
+          autoFocus={false}
+          returnKeyType={"search"}
+          listViewDisplayed="auto"
+          suppressDefaultStyles={true}
+          fetchDetails={true}
+          renderDescription={(row) => row.description}
+          onPress={(data, details = null) => {
+            console.log("data", data);
+            console.log("details", details);
+          }}
+          getDefaultValue={() => {
+            return ""; // text input default value
+          }}
+          query={{
+            key: "AIzaSyDpgQBK2ZMFPjuPCiyMXgK1VCXlWfoc-XE",
+            language: "en",
+          }}
+          styles={{
+            description: {
+              fontWeight: "bold",
+            },
+            predefinedPlacesDescription: {
+              color: "#1faadb",
+            },
+          }}
+          currentLocationLabel="Current location"
+          nearbyPlacesAPI="GooglePlacesSearch"
+          GoogleReverseGeocodingQuery={{}}
+          GooglePlacesSearchQuery={{
+            rankby: "distance",
+          }}
+          debounce={200}
+        />
+        <GooglePlacesAutocomplete
+          placeholder="Destination"
+          minLength={2}
+          autoFocus={false}
+          returnKeyType={"search"}
+          suppressDefaultStyles={true}
+          listViewDisplayed="auto"
+          fetchDetails={true}
+          renderDescription={(row) => row.description}
+          onPress={(data, details = null) => {
+            console.log("data", data);
+            console.log("details", details);
+          }}
+          getDefaultValue={() => {
+            return ""; // text input default value
+          }}
+          query={{
+            key: "AIzaSyDpgQBK2ZMFPjuPCiyMXgK1VCXlWfoc-XE",
+            language: "en",
+          }}
+          styles={{
+            description: {
+              fontWeight: "bold",
+            },
+            predefinedPlacesDescription: {
+              color: "#1faadb",
+            },
+          }}
+          currentLocationLabel="Current location"
+          nearbyPlacesAPI="GooglePlacesSearch"
+          GoogleReverseGeocodingQuery={{}}
+          GooglePlacesSearchQuery={{
+            rankby: "distance",
+          }}
+          debounce={200}
+        /> */}
       </View>
     </View>
   );
@@ -86,8 +159,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "3%",
     left: "7%",
-    height: 50,
-    width: 50,
     alignSelf: "flex-start",
   },
   container: {
@@ -99,8 +170,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   imageButton: {
-    height: 50,
-    width: 50,
+    height: 45,
+    width: 45,
+    resizeMode: "contain",
   },
 });
 

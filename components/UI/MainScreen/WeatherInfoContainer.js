@@ -3,20 +3,34 @@ import { View, StyleSheet, Text, Image } from "react-native";
 import WeatherInfo from "./WeatherInfo";
 import { useSelector } from "react-redux";
 import { boldText } from "../constant";
+import Images from "./images";
+
+const setIconFromWeather = (value) => {
+  const weatherDictionary = {
+    Rain: "rain",
+    Snow: "snow",
+    Drizzle: "rain",
+    Thunderstorm: "rain",
+    Clear: "sun",
+    Clouds: "cloud",
+  };
+
+  const iconDescription = weatherDictionary[`${value}`];
+  return iconDescription;
+};
 
 const WeatherInfoContainer = (props) => {
-  const icon = useSelector((state) => state.weather.icon);
+  const description = useSelector((state) => state.weather.description);
+  const icon = setIconFromWeather(description);
+
   return (
     <React.Fragment>
+      <View style={styles.weatherIconContainer}>
+        {icon && <Image source={Images[`${icon}`]} />}
+      </View>
       <View style={styles.weatherInfoContainer}>
         <Text style={styles.weatherInfoText}>Todays weather</Text>
       </View>
-      <Image
-        style={styles.icon}
-        source={{
-          uri: `http://openweathermap.org/img/wn/${icon}.png`,
-        }}
-      />
       <View style={styles.weatherInfoContainer}>
         <WeatherInfo location={props.location} />
         <Text style={styles.weatherInfoText_}> o</Text>
@@ -42,9 +56,10 @@ const styles = StyleSheet.create({
     fontSize: 11,
     lineHeight: 18,
   },
-  icon: {
-    width: 40,
-    height: 40,
+  weatherIconContainer: {
+    position: "absolute",
+    right: 50,
+    top: 53,
   },
 });
 

@@ -1,27 +1,30 @@
-import React from "react";
-import { View, StyleSheet, Text, Image, ToastAndroid } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+  ToastAndroid,
+} from "react-native";
 import { useFonts, KumbhSans_700Bold } from "@expo-google-fonts/kumbh-sans";
 import Input from "../../Common/Input";
 import SignContainer from "../../Common/SignContainer";
-import BottomButtons from "./BottomButtons";
-import { boldText, appName } from "../../constant";
+import { boldText } from "../../constant";
 import useInput from "../../../hooks/useInput";
 import { useDispatch } from "react-redux";
 import authSlice from "../../../../store/auth-slice";
 import images from "../images";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { appName } from "../../constant";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import uiSlice from "../../../../store/ui-slice";
 
-const LoginForm = (props) => {
+const RegForm = (props) => {
   const auth = getAuth();
   const dispatch = useDispatch();
 
+  const { value: inputName, valueChange: nameChangeHandler } = useInput();
   const { value: inputEmail, valueChange: emailChangeHandler } = useInput();
-
   const { value: inputPassword, valueChange: passwordChangeHandler } =
     useInput();
 
@@ -33,8 +36,8 @@ const LoginForm = (props) => {
     return <Text></Text>;
   }
 
-  const signInHandler = () => {
-    signInWithEmailAndPassword(auth, inputEmail, inputPassword)
+  const signUpHandler = () => {
+    createUserWithEmailAndPassword(auth, inputEmail, inputPassword)
       .then(() => {
         dispatch(authSlice.actions.signIn());
         dispatch(uiSlice.actions.goToWeatherCondition());
@@ -51,13 +54,8 @@ const LoginForm = (props) => {
       });
   };
 
-  const guessHandler = () => {
-    dispatch(authSlice.actions.signIn());
-    dispatch(uiSlice.actions.goToWeatherCondition());
-  };
-
-  const signUpHandler = () => {
-    dispatch(uiSlice.actions.goToRegistrationForm());
+  const loginFormHandler = () => {
+    dispatch(uiSlice.actions.goToLoginFrom());
   };
 
   return (
@@ -66,9 +64,14 @@ const LoginForm = (props) => {
         <Text style={styles.name}>{appName}</Text>
       </View>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={images.login} />
+        <Image style={styles.image} source={images.register} />
       </View>
       <View style={styles.inputView}>
+        <Input
+          placeholder="Name"
+          value={inputName}
+          onInputChange={nameChangeHandler}
+        />
         <Input
           placeholder="Your Email"
           value={inputEmail}
@@ -82,20 +85,15 @@ const LoginForm = (props) => {
         />
       </View>
       <SignContainer
-        label={"Sign in"}
-        textStyle={styles.signInText}
-        onLogged={signInHandler}
+        label={"Sign Up"}
+        textStyle={styles.signUpText}
+        onLogged={signUpHandler}
       >
         <Image style={styles.imageButton} source={images.button} />
       </SignContainer>
-      <SignContainer
-        label={"Guest access"}
-        textStyle={styles.guestText}
-        onLogged={guessHandler}
-      >
-        <Image style={styles.imageButton} source={images.button} />
-      </SignContainer>
-      <BottomButtons signUp={signUpHandler} />
+      <TouchableOpacity onPress={loginFormHandler}>
+        <Text style={styles.downText}>Sign In</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -122,24 +120,27 @@ const styles = StyleSheet.create({
     height: "38%",
   },
   inputView: {
-    marginBottom: 17,
+    marginTop: 10,
+    marginBottom: 15,
   },
-  signInText: {
+  signUpText: {
     fontFamily: boldText,
     fontSize: 30,
   },
-  guestText: {
-    fontFamily: boldText,
-    fontSize: 27,
-  },
   image: {
-    height: "90%",
-    width: "90%",
+    height: "100%",
+    width: "70%",
   },
   imageButton: {
     width: 52,
     height: 52,
   },
+  downText: {
+    fontFamily: boldText,
+    fontSize: 17,
+    marginVertical: 30,
+    marginLeft: 260,
+  },
 });
 
-export default LoginForm;
+export default RegForm;

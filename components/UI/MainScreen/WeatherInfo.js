@@ -16,11 +16,11 @@ const WeatherInfo = (props) => {
       );
       const data = await response.json();
 
-      const icon = data.weather[0].icon;
+      const description = data.weather[0].main;
       const temp = data.main?.temp.toFixed();
 
       dispatch(weatherSlice.actions.isWeatherChanged(temp));
-      dispatch(weatherSlice.actions.setIconId(icon));
+      dispatch(weatherSlice.actions.setDescription(description));
     } catch (err) {
       console.error(err);
     }
