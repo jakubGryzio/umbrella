@@ -23,3 +23,4 @@ https://www.figma.com/file/2AwNs9pQKvstnISkCacPcH/UBRELLA
 # Usefull documentation
 1. https://github.com/react-native-maps/react-native-maps
 2. https://github.com/bramus/react-native-maps-directions
+3. https://www.npmjs.com/package/react-native-google-places-autocomplete
