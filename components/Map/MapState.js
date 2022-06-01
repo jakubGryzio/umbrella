@@ -1,27 +1,18 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-import MapViewDirections from "react-native-maps-directions";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import MapDirections from "./MapDirections";
+import RouteMarker from "./RouteMarker";
+import MapPlaces from "./MapPlaces";
+import images from "./images";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import uiSlice from "../../store/ui-slice";
 
 import customMapStyle from "./customMapStyle";
 
-const GOOGLE_MAPS_APIKEY = "AIzaSyDpgQBK2ZMFPjuPCiyMXgK1VCXlWfoc-XE";
-
 const MapState = (props) => {
   const dispatch = useDispatch();
-
-  const origin = {
-    latitude: props.location.latitude,
-    longitude: props.location.longitude,
-  };
-
-  const destination = {
-    latitude: 52.220415273884505,
-    longitude: 21.01207102961384,
-  };
 
   const weatherConditionHandler = () => {
     dispatch(uiSlice.actions.goToWeatherCondition());
@@ -42,108 +33,16 @@ const MapState = (props) => {
           showsUserLocation={true}
           customMapStyle={customMapStyle}
         >
-          <Marker
-            coordinate={{
-              latitude: 52.220415273884505,
-              longitude: 21.01207102961384,
-            }}
-            title={"KEBAB DUBAI"}
-            description={"Najlepszy kebab na świecie"}
-          >
-            <Image
-              source={require("../../assets/images/marker.png")}
-              style={{ height: 45, width: 45 }}
-            />
-          </Marker>
-
-          <MapViewDirections
-            origin={origin}
-            destination={destination}
-            apikey={GOOGLE_MAPS_APIKEY}
-            strokeWidth={3}
-          />
+          <RouteMarker />
+          <MapDirections location={props.location} />
         </MapView>
         <TouchableOpacity
           style={styles.button}
           onPress={weatherConditionHandler}
         >
-          <Image
-            style={styles.imageButton}
-            source={require("../../assets/images/arrow.png")}
-          />
+          <Image style={styles.imageButton} source={images.arrow} />
         </TouchableOpacity>
-        {/* <GooglePlacesAutocomplete
-          placeholder="Starting point"
-          minLength={2}
-          autoFocus={false}
-          returnKeyType={"search"}
-          listViewDisplayed="auto"
-          suppressDefaultStyles={true}
-          fetchDetails={true}
-          renderDescription={(row) => row.description}
-          onPress={(data, details = null) => {
-            console.log("data", data);
-            console.log("details", details);
-          }}
-          getDefaultValue={() => {
-            return ""; // text input default value
-          }}
-          query={{
-            key: "AIzaSyDpgQBK2ZMFPjuPCiyMXgK1VCXlWfoc-XE",
-            language: "en",
-          }}
-          styles={{
-            description: {
-              fontWeight: "bold",
-            },
-            predefinedPlacesDescription: {
-              color: "#1faadb",
-            },
-          }}
-          currentLocationLabel="Current location"
-          nearbyPlacesAPI="GooglePlacesSearch"
-          GoogleReverseGeocodingQuery={{}}
-          GooglePlacesSearchQuery={{
-            rankby: "distance",
-          }}
-          debounce={200}
-        />
-        <GooglePlacesAutocomplete
-          placeholder="Destination"
-          minLength={2}
-          autoFocus={false}
-          returnKeyType={"search"}
-          suppressDefaultStyles={true}
-          listViewDisplayed="auto"
-          fetchDetails={true}
-          renderDescription={(row) => row.description}
-          onPress={(data, details = null) => {
-            console.log("data", data);
-            console.log("details", details);
-          }}
-          getDefaultValue={() => {
-            return ""; // text input default value
-          }}
-          query={{
-            key: "AIzaSyDpgQBK2ZMFPjuPCiyMXgK1VCXlWfoc-XE",
-            language: "en",
-          }}
-          styles={{
-            description: {
-              fontWeight: "bold",
-            },
-            predefinedPlacesDescription: {
-              color: "#1faadb",
-            },
-          }}
-          currentLocationLabel="Current location"
-          nearbyPlacesAPI="GooglePlacesSearch"
-          GoogleReverseGeocodingQuery={{}}
-          GooglePlacesSearchQuery={{
-            rankby: "distance",
-          }}
-          debounce={200}
-        /> */}
+        <MapPlaces />
       </View>
     </View>
   );

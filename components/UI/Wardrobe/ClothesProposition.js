@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
     width: 80,
   },
   arrowImage: {
-    width: 45,
-    height: 45,
+    width: 40,
+    height: 40,
     resizeMode: "contain",
   },
   wardrobe: {
@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
     width: 80,
   },
   wardrobeImage: {
-    width: 55,
-    height: 55,
+    width: 50,
+    height: 50,
   },
 });
 

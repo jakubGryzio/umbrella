@@ -28,6 +28,8 @@ const WeatherInfo = (props) => {
 
   useEffect(() => {
     weatherInfoHandler(props.location);
+
+    return () => undefined;
   }, []);
 
   return <Text style={styles.weatherInfoText}>{temperature}</Text>;
