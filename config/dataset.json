@@ -1,0 +1,451 @@
+{
+  "clothes": [
+    {
+      "uuid": 1,
+      "type": "cap",
+      "brand": "The North Face",
+      "description": "FISHERMAN BEANIE UNISEX - Czapka",
+      "temperature": {
+        "min": -5,
+        "max": 15
+      },
+      "rain": false,
+      "cloudy": ["Duże"],
+      "sunny": ["Umiarkowanie", "Brak słońca"],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "brown",
+      "style": "winter cap",
+      "image": "cap_nf.png"
+    },
+    {
+      "uuid": 2,
+      "type": "hoodie",
+      "brand": "Hoodie",
+      "description": "STANDARD ZIP HOODIE - Bluza rozpinana ",
+      "temperature": {
+        "min": -2,
+        "max": 20
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "Hooded sweatshirt",
+      "image": "hoodie_w.png"
+    },
+    {
+      "uuid": 3,
+      "type": "hoodie",
+      "brand": "Champion Reverse Weave",
+      "description": "HOODED - Bluza",
+      "temperature": {
+        "min": 2,
+        "max": 21
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "Hooded sweatshirt",
+      "image": "hoodie_c.png"
+    },
+    {
+      "uuid": 4,
+      "type": "hoodie",
+      "brand": "Nike Sportswear",
+      "description": "CLUB HOODIE - Bluza z kapturem",
+      "temperature": {
+        "min": -5,
+        "max": 17
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "grey",
+      "style": "Hooded sweatshirt",
+      "image": "hoodie_n.png"
+    },
+    {
+      "uuid": 5,
+      "type": "cap",
+      "brand": "Nike Sportswear",
+      "description": "BUCKET FUTURA CORE – Bucket hat ",
+      "temperature": {
+        "min": 20,
+        "max": 50
+      },
+      "rain": true,
+      "cloudy": ["Lekkie", "Brak"],
+      "sunny": ["Bardzo słonecznie", "Słonecznie"],
+      "windy": ["Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "Hat",
+      "image": "cap_n.png"
+    },
+    {
+      "uuid": 9,
+      "type": "top",
+      "brand": "Jack & Jones",
+      "description": "Top",
+      "temperature": {
+        "min": 5,
+        "max": 40
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie"],
+      "sunny": ["Słonecznie", "Umiarkowanie", "Brak słońca"],
+      "windy": ["Lekki wiatr", "Brak wiatru"],
+      "color": "white",
+      "style": "t-shirt",
+      "image": "top_jj.png"
+    },
+    {
+      "uuid": 10,
+      "type": "top",
+      "brand": "Polo Ralph Lauren",
+      "description": "CUSTOM CREWNECK - T-shirt basic",
+      "temperature": {
+        "min": 0,
+        "max": 32
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "white",
+      "style": "t-shirt",
+      "image": "tshirt_pl.png"
+    },
+    {
+      "uuid": 11,
+      "type": "top",
+      "brand": "Weekday",
+      "description": "GREAT - T-shirt basic",
+      "temperature": {
+        "min": 0,
+        "max": 25
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "beige",
+      "style": "t-shirt",
+      "image": "tshirt_w.png"
+    },
+    {
+      "uuid": 12,
+      "type": "top",
+      "brand": "Weekday",
+      "description": "GREAT - T-shirt basic",
+      "temperature": {
+        "min": 0,
+        "max": 25
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "t-shirt",
+      "image": "tshirt_w2.png"
+    },
+    {
+      "uuid": 13,
+      "type": "trousers",
+      "brand": "PULL&BEAR",
+      "description": "Jeansy Straight Leg",
+      "temperature": {
+        "min": -5,
+        "max": 25
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "blue",
+      "style": "jeans",
+      "image": "trousers_l.png"
+    },
+    {
+      "uuid": 14,
+      "type": "trousers",
+      "brand": "Carhartt WIP",
+      "description": "MASTER DENISON – chinos trousers",
+      "temperature": {
+        "min": -5,
+        "max": 25
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "beige",
+      "style": "fabric trousers",
+      "image": "trousers_c.png"
+    },
+    {
+      "uuid": 15,
+      "type": "trousers",
+      "brand": "Anna Field",
+      "description": "Basic wide leg pants - Spodnie materiałowe",
+      "temperature": {
+        "min": 5,
+        "max": 27
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "suit trousers",
+      "image": "trousers_af.png"
+    },
+    {
+      "uuid": 16,
+      "type": "short",
+      "brand": "Weekday",
+      "description": "OLSEN - Shorts",
+      "temperature": {
+        "min": 18,
+        "max": 50
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "short shorts",
+      "image": "short_w.png"
+    },
+    {
+      "uuid": 17,
+      "type": "short",
+      "brand": "Weekday",
+      "description": "SPACE – Jeans shorts",
+      "temperature": {
+        "min": 18,
+        "max": 45
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "blue",
+      "style": "jeans shorts",
+      "image": "short_w2.png"
+    },
+    {
+      "uuid": 18,
+      "type": "shoes",
+      "brand": "Dr. Martens",
+      "description": "101 BEX – Winter Shoes",
+      "temperature": {
+        "min": 10,
+        "max": 20
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "winter boots",
+      "image": "shoes_dm.png"
+    },
+    {
+      "uuid": 19,
+      "type": "shoes",
+      "brand": "Vans",
+      "description": "CLASSIC SLIP-ON – Low sneakers",
+      "temperature": {
+        "min": 10,
+        "max": 40
+      },
+      "rain": false,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "beige",
+      "style": "summer boots",
+      "image": "shoes_v.png"
+    },
+    {
+      "uuid": 20,
+      "type": "shoes",
+      "brand": "Nike Sportswear",
+      "description": "AIR MAX ESSENTIAL – Low Sneakers",
+      "temperature": {
+        "min": 10,
+        "max": 34
+      },
+      "rain": true,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "white",
+      "style": "summer boots",
+      "image": "shoes_n.png"
+    },
+    {
+      "uuid": 21,
+      "type": "shoes",
+      "brand": "Converse",
+      "description": "CHUCK TAYLOR ALL STAR 70 HI – High Sneakers",
+      "temperature": {
+        "min": 10,
+        "max": 34
+      },
+      "rain": false,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "summer boots",
+      "image": "shoes_c.png"
+    },
+    {
+      "uuid": 22,
+      "type": "shoes",
+      "brand": "Birkenstock",
+      "description": "ARIZONA SOFT FOOTBED NARROW FIT - Flipflops",
+      "temperature": {
+        "min": 20,
+        "max": 40
+      },
+      "rain": false,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "black",
+      "style": "sandals",
+      "image": "shoes_b.png"
+    },
+    {
+      "uuid": 23,
+      "type": "socks",
+      "brand": "Carhartt WIP",
+      "description": "Long Socks",
+      "temperature": {
+        "min": 10,
+        "max": 35
+      },
+      "rain": false,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Tornado", "Wieje", "Lekki wiatr", "Brak wiatru"],
+      "color": "white",
+      "style": "long socks",
+      "image": "socks_c.png"
+    },
+    {
+      "uuid": 24,
+      "type": "socks",
+      "brand": "Nike Sportswear ",
+      "description": "Short socks",
+      "temperature": {
+        "min": 15,
+        "max": 35
+      },
+      "rain": false,
+      "cloudy": ["Duże", "Średnie", "Lekkie", "Brak"],
+      "sunny": [
+        "Bardzo słonecznie",
+        "Słonecznie",
+        "Umiarkowanie",
+        "Brak słońca"
+      ],
+      "windy": ["Lekki wiatr", "Brak wiatru"],
+      "color": "white",
+      "style": "short socks",
+      "image": "socks_n.png"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapDirections from "./MapDirections";
@@ -13,6 +13,7 @@ import customMapStyle from "./customMapStyle";
 
 const MapState = (props) => {
   const dispatch = useDispatch();
+  const mapView = useRef();
 
   const weatherConditionHandler = () => {
     dispatch(uiSlice.actions.goToWeatherCondition());
@@ -22,6 +23,7 @@ const MapState = (props) => {
     <View style={styles.page}>
       <View style={styles.container}>
         <MapView
+          ref={mapView}
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={styles.map}
           region={{
@@ -34,7 +36,7 @@ const MapState = (props) => {
           customMapStyle={customMapStyle}
         >
           <RouteMarker />
-          <MapDirections location={props.location} />
+          <MapDirections ref={mapView} location={props.location} />
         </MapView>
         <TouchableOpacity
           style={styles.button}
